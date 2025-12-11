@@ -43,14 +43,20 @@ RUN pip install --upgrade pip && \
     sed -i '/torch/d' requirements.txt && \
     pip install --no-cache-dir -r requirements.txt
 
+# Fix permissions: Base image has TTS in /root/TTS (editable install)
+# We need to make it readable for our non-root 'user'
+RUN chmod 755 /root && \
+    if [ -d "/root/TTS" ]; then chmod -R 755 /root/TTS; fi
+
 # Copy the rest of the application code
 COPY . .
 
-# Fix permissions
+# Fix permissions for app code
 RUN chown -R user:user /app
 
 # Switch to non-root user
 USER user
+ENV HOME=/home/user
 ENV PATH="/home/user/.local/bin:$PATH"
 ENV COQUI_TOS_AGREED=1
 
