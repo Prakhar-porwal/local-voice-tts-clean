@@ -1,0 +1,17 @@
+{
+  "custom_deep_story_female": {
+    "file_path": "voices/deep_story_female.wav",
+    "name": "Deep Story Female",
+    "language": "en"
+  },
+  "custom_deep_story_male": {
+    "file_path": "voices/deep_story_male.mp3",
+    "name": "Deep Story Male",
+    "language": "en"
+  },
+  "custom_jesus_voice": {
+    "file_path": "voices/jesus_custom.mp3",
+    "name": "Jesus Style Voice",
+    "language": "en"
+  }
+}

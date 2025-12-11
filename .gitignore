@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules
+app/dist
+app/.vercel
+
+# Python
+venv/
+server/venv/
+__pycache__/
+*.pyc
+
+# Data
+# voices/
+# server/voices/
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+# Models (just in case they are downloaded locally)
+tts_models/
+

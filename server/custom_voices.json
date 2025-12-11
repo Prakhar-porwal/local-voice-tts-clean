@@ -1,0 +1,57 @@
+{
+  "custom_deep_story_female": {
+    "file_path": "voices/deep_story_female.wav",
+    "name": "Deep Story Female",
+    "language": "en"
+  },
+  "custom_deep_story_male": {
+    "file_path": "voices/deep_story_male.mp3",
+    "name": "Deep Story Male",
+    "language": "en"
+  },
+  "custom_jesus_voice": {
+    "file_path": "voices/jesus.mp3",
+    "name": "Jesus Style Voice",
+    "language": "en"
+  },
+  "custom_51e125ac": {
+    "file_path": "voices/custom_51e125ac.mp3",
+    "name": "audio (9).mp3",
+    "language": "en"
+  },
+  "custom_ad1e100f": {
+    "file_path": "voices/custom_ad1e100f.mp3",
+    "name": "A stranger told me my husband made a huge mistake \u2014 but who he really was shocked me\u2026 - Voices of Sister Sephora-[AudioTrimmer.com].mp3",
+    "language": "en"
+  },
+  "custom_da5390b9": {
+    "file_path": "voices/custom_da5390b9.mp3",
+    "name": "A stranger told me my husband made a huge mistake \u2014 but who he really was shocked me\u2026 - Voices of Sister Sephora-[AudioTrimmer.com].mp3",
+    "language": "en"
+  },
+  "custom_c11a81bc": {
+    "file_path": "voices/custom_c11a81bc.mp3",
+    "name": "audio (9).mp3",
+    "language": "en"
+  },
+  "custom_134816c3": {
+    "file_path": "voices/custom_134816c3.mp3",
+    "name": "A stranger told me my husband made a huge mistake \u2014 but who he really was shocked me\u2026 - Voices of Sister Sephora-[AudioTrimmer.com].mp3",
+    "language": "en"
+  },
+  "custom_d0fe9d90": {
+    "file_path": "voices/custom_d0fe9d90.wav",
+    "name": "Sample (mp3cut.net).wav",
+    "language": "en"
+  },
+  "custom_c0f363a2": {
+    "file_path": "voices/custom_c0f363a2.wav",
+    "name": "Sample (mp3cut.net).wav",
+    "language": "en"
+  },
+  "custom_b9c7ff0d": {
+    "file_path": "voices/custom_b9c7ff0d.mp3",
+    "name": "Sample (mp3cut.net) (1).mp3",
+    "language": "en"
+  }
+}

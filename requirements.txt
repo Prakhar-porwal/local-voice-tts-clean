@@ -1,0 +1,22 @@
+
+# Core AI / Deep Learning
+torch==2.1.0
+torchvision==0.16.0
+torchaudio==2.1.0
+
+# HuggingFace TTS
+TTS==0.22.0
+transformers==4.33.0
+
+# Web Framework
+fastapi
+uvicorn[standard]
+
+# Audio Processing
+librosa
+soundfile
+pydub
+
+# Utilities
+numpy
+python-multipart
