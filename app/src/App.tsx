@@ -131,9 +131,13 @@ const LANGUAGE_OPTIONS = [
   { value: "es", label: "Spanish (es)" },
 ];
 
-const BASE_URL = import.meta.env.VITE_API_URL || "";
+const DEFAULT_BASE_URL = import.meta.env.VITE_API_URL || "";
 
 const App: React.FC = () => {
+  // Allow user to override API URL for Turbo Mode (Colab)
+  const [apiBaseUrl, setApiBaseUrl] = useState(DEFAULT_BASE_URL);
+  const [showSettings, setShowSettings] = useState(false);
+
   const [text, setText] = useState(
     "Once upon a time, in a quiet town, there lived a storyteller who could turn any moment into magic."
   );
@@ -166,7 +170,7 @@ const App: React.FC = () => {
 
     const intervalId = window.setInterval(async () => {
       try {
-        const res = await fetch(`${BASE_URL}/tts/progress`);
+        const res = await fetch(`${apiBaseUrl}/tts/progress`);
         if (res.ok) {
           const data = await res.json();
           setProgress({
@@ -180,7 +184,7 @@ const App: React.FC = () => {
     }, 1000);
 
     try {
-      const res = await fetch(`${BASE_URL}/tts`, {
+      const res = await fetch(`${apiBaseUrl}/tts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -222,7 +226,7 @@ const App: React.FC = () => {
     }
 
     try {
-      const res = await fetch(`${BASE_URL}/voices/clone`, {
+      const res = await fetch(`${apiBaseUrl}/voices/clone`, {
         method: "POST",
         body: formData,
       });
@@ -263,12 +267,45 @@ const App: React.FC = () => {
       <div className="app-gradient-bg" />
       <div className="app-shell">
         <header className="app-header">
-          <div className="app-logo-circle">🎙</div>
-          <div>
-            <h1>Local Voice Studio</h1>
-            <p>Beautiful voiceovers. Fully local. Your custom voices, your control.</p>
+          <div className="header-left">
+            <div className="app-logo-circle">🎙</div>
+            <div>
+              <h1>Local Voice Studio</h1>
+              <p>Beautiful voiceovers. Fully local. Your custom voices, your control.</p>
+            </div>
           </div>
+          <button
+            className="btn-icon"
+            onClick={() => setShowSettings(!showSettings)}
+            title="Settings (API URL)"
+          >
+            ⚙️
+          </button>
         </header>
+
+        {showSettings && (
+          <div className="settings-panel glass">
+            <h3>⚙️ Turbo Mode Settings</h3>
+            <p className="text-small">
+              Paste your Google Colab (ngrok) URL here for faster generation.
+              Leave empty to use default.
+            </p>
+            <div className="field-row">
+              <input
+                type="text"
+                placeholder="https://...ngrok-free.app"
+                value={apiBaseUrl}
+                onChange={(e) => setApiBaseUrl(e.target.value)}
+              />
+              <button
+                className="btn-small"
+                onClick={() => setApiBaseUrl(DEFAULT_BASE_URL)}
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+        )}
 
         <main className="app-main-grid">
           {/* LEFT PANEL */}
