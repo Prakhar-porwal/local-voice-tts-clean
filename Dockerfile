@@ -74,5 +74,9 @@ RUN mkdir -p server/voices
 ENV PORT=7860
 EXPOSE 7860
 
+# Reset ENTRYPOINT because the base image sets it to 'tts' CLI by default
+# This allows our CMD to run 'uvicorn' directly instead of 'tts uvicorn ...'
+ENTRYPOINT []
+
 # Run the unified FastAPI app
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
