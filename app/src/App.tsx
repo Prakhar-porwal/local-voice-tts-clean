@@ -131,7 +131,7 @@ const LANGUAGE_OPTIONS = [
   { value: "es", label: "Spanish (es)" },
 ];
 
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 const App: React.FC = () => {
   const [text, setText] = useState(
