@@ -278,10 +278,12 @@ def tts_endpoint(body: TTSRequest):
         except HTTPException:
             raise
         except Exception as e:
+            import traceback
+            traceback.print_exc()
             print("Error in /tts (cloned/custom voice):", repr(e))
             raise HTTPException(
                 status_code=500,
-                detail="Error generating TTS for cloned/custom voice.",
+                detail=f"Error generating TTS: {str(e)}",
             )
 
     # -------- 2) Preset voices → VCTK (English only) --------
