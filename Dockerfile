@@ -67,8 +67,12 @@ ENV COQUI_TOS_AGREED=1
 #    print('Downloading VCTK...'); TTS('tts_models/en/vctk/vits'); \
 #    print('Downloading XTTS...'); TTS('tts_models/multilingual/multi-dataset/xtts_v2');"
 
-# Create voices directory
-RUN mkdir -p server/voices
+# Create voices directory in root (where main.py expects it)
+RUN mkdir -p voices
+
+# Copy custom voices from server/voices (if user uploaded there) to root voices/
+# This fixes the issue where user uploads to server/voices but main.py looks in voices/
+RUN cp -r server/voices/* voices/ 2>/dev/null || true
 
 # Expose port 7860 (Hugging Face Spaces default)
 ENV PORT=7860
