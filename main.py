@@ -191,9 +191,7 @@ app.add_middleware(
 )
 
 
-@app.get("/")
-def home():
-    return {"status": "running", "message": "Local Voice TTS Backend is ready!"}
+
 
 
 
