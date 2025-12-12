@@ -61,10 +61,11 @@ ENV PATH="/home/user/.local/bin:$PATH"
 ENV COQUI_TOS_AGREED=1
 
 # Pre-download models (XTTS, VCTK) to bake them into the image
-# This speeds up startup time
-RUN python3 -c "from TTS.api import TTS; \
-    print('Downloading VCTK...'); TTS('tts_models/en/vctk/vits'); \
-    print('Downloading XTTS...'); TTS('tts_models/multilingual/multi-dataset/xtts_v2');"
+# WE REMOVE THIS because running TTS() loads the model into RAM, causing OOM 137 during build.
+# The models will be downloaded at runtime (first startup) instead.
+# RUN python3 -c "from TTS.api import TTS; \
+#    print('Downloading VCTK...'); TTS('tts_models/en/vctk/vits'); \
+#    print('Downloading XTTS...'); TTS('tts_models/multilingual/multi-dataset/xtts_v2');"
 
 # Create voices directory
 RUN mkdir -p server/voices
